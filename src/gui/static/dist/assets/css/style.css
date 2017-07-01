@@ -69,10 +69,10 @@ br {
     position: absolute;
     top: 4px;
 }
-#main-content {
+/*#main-content {
     max-width: 950px;
     position:relative;
-}
+}*/
 .wallet-buttons {
     width: 100%;
     clear: both;
@@ -373,4 +373,9 @@ label {
     top: 25px;
     left: 190px;
     color: rgb(156, 163, 175);
+}
+
+.sync-div-container{
+    display: inline-block;
+    /*float: right;*/
 }

@@ -1,5 +1,5 @@
 <div id="sky-center">
-    <div id="main-content" class="ng-isolate-scope">
+    <div class="container-fluid">
         <div class="header-for-total-sky">
             <span class="total-sky-text" *ngIf="totalSky>0">Confirmed Balance: {{totalSky|number}} SKY</span>
             <skycoin-block-sync></skycoin-block-sync>
@@ -39,11 +39,11 @@
                         <i class="fa fa-gear"></i>
                     </button>
                     <ul role="menu" class="dropdown-menu pull-right">
-                        <li><a href="#" (click)="selectMenu('Networking', $event)">Networking</a></li>
-                        <li><a href="#" (click)="selectMenu('BlockChain', $event)">BlockChain</a></li>
-                        <li><a href="#" (click)="selectMenu('Outputs', $event)">Outputs</a></li>
-                        <li><a href="#" (click)="selectMenu('PendingTxns', $event)">Pending Transactions</a></li>
-                        <li><a href="#" (click)="selectMenu('BackupWallet', $event)">Backup Wallet</a></li>
+                        <li><a href="javascript:void(0);" (click)="selectMenu('Networking', $event)">Networking</a></li>
+                        <li><a href="javascript:void(0);" (click)="selectMenu('BlockChain', $event)">BlockChain</a></li>
+                        <li><a href="javascript:void(0);" (click)="selectMenu('Outputs', $event)">Outputs</a></li>
+                        <li><a href="javascript:void(0);" (click)="selectMenu('PendingTxns', $event)">Pending Transactions</a></li>
+                        <li><a href="javascript:void(0);" (click)="selectMenu('BackupWallet', $event)">Backup Wallet</a></li>
                     </ul>
                 </div>
             </li>
@@ -68,8 +68,8 @@
                         <tbody *ngFor="let wallet of wallets">
                         <tr>
                             <td>
-                                <a href="#" (click)="toggleShowChild(wallet)" *ngIf="!wallet.showChild"><i class="fa fa-angle-right"></i></a>
-                                <a href="#" (click)="toggleShowChild(wallet)" *ngIf="wallet.showChild"><i class="fa fa-angle-down"></i></a>
+                                <a href="javascript:void(0);" (click)="toggleShowChild(wallet)" *ngIf="!wallet.showChild"><i class="fa fa-angle-right"></i></a>
+                                <a href="javascript:void(0);" (click)="toggleShowChild(wallet)" *ngIf="wallet.showChild"><i class="fa fa-angle-down"></i></a>
                             </td>
                             <td>
                                 <skycoin-edit [wallets]="wallets" [walletId]="wallet.meta.filename" [text]="wallet.meta.label?wallet.meta.label:'undefined'" (onWalletChanged)="loadWallet()"></skycoin-edit>
@@ -79,12 +79,12 @@
                             <td class="text-center">{{wallet.balance}} SKY</td>
                             <td class="text-right">{{wallet.entries.length}}&nbsp;</td>
                             <td class="text-right">
-                                <a href="#" (click)="addNewAddress(wallet)"><i class="fa fa-plus add-address"></i></a></td>
+                                <a href="javascript:void(0);" (click)="addNewAddress(wallet)"><i class="fa fa-plus add-address"></i></a></td>
                         </tr>
                         <tr *ngFor="let entry of wallet.entries; let idx=index" [hidden]="!wallet.showChild" style="background-color: #f4f5f6">
                             <td></td>
                             <td class="text-center"> {{idx+1}}</td>
-                            <td><a href="#" (click)="showQR(entry.address)"><i class="fa " aria-hidden="true"></i>&nbsp;<i class="fa fa-qrcode"></i></a>&nbsp;{{entry.address}}</td>
+                            <td><a href="javascript:void(0);" (click)="showQR(entry.address)"><i class="fa " aria-hidden="true"></i>&nbsp;<i class="fa fa-qrcode"></i></a>&nbsp;{{entry.address}}</td>
                             <td class="text-right">{{entry.balance?entry.balance:0}} SKY</td>
                             <td></td>
                             <td></td>
@@ -186,7 +186,7 @@
                             <thead>
                             <tr class="dark-row">
                                 <td style="width:80px">
-                                    <a href="#" (click)="sortHistory('time')" class="text-underline">Time
+                                    <a href="javascript:void(0);" (click)="sortHistory('time')" class="text-underline">Time
                                         <i *ngIf="sortDir.time!=0" class="glyphicon glyphicon-triangle-{{sortDir.time==1?'top':'bottom'}}"></i></a>
                                 </td>
                                 <td>Status</td>
@@ -265,7 +265,7 @@
                                 <tbody>
                                 <tr *ngFor="let block of blockPagedItems">
                                     <td>{{getDateTimeString(block.header.timestamp)}}</td>
-                                    <td><a href="#" (click)="showBlockDetail(block)" class="text-underline">{{block.header.seq}}</a></td>
+                                    <td><a href="javascript:void(0);" (click)="showBlockDetail(block)" class="text-underline">{{block.header.seq}}</a></td>
                                     <td>{{block.body.txns.length}}</td>
                                     <td>{{GetBlockAmount(block)}}</td>
                                     <td>
@@ -296,7 +296,7 @@
                     </div>
                     <div *ngIf="blockViewMode=='blockDetail'">
                         <div>
-                            <a href="#" (click)="showRecentBlock()" class="text-underline"><i class="fa fa-arrow-left"></i> Recent Blocks</a>
+                            <a href="javascript:void(0);" (click)="showRecentBlock()" class="text-underline"><i class="fa fa-arrow-left"></i> Recent Blocks</a>
                         </div>
                         <h4>Block #{{selectedBlock.header.seq}}</h4>
                         <p>
@@ -323,7 +323,7 @@
                             <tbody *ngFor="let txns of selectedBlock.body.txns">
                             <tr style="background:white">
                                 <td colspan="2">{{getDateTimeString(selectedBlock.header.timestamp)}}</td>
-                                <td colspan="2"><a class="pull-right text-underline" href="#" (click)="showBlockTransactionDetail(txns)">{{txns.txid}}</a></td>
+                                <td colspan="2"><a class="pull-right text-underline" href="javascript:void(0);" (click)="showBlockTransactionDetail(txns)">{{txns.txid}}</a></td>
                             </tr>
                             <tr style="background:white">
                                 <td>
@@ -331,7 +331,7 @@
                                 </td>
                                 <td><i class="fa fa-2x fa-arrow-right"></i></td>
                                 <td>
-                                    <p *ngFor="let item of txns.outputs"><a href="#" (click)="showBlockAddressDetail(item.dst)" class="text-underline">{{item.dst}}</a></p>
+                                    <p *ngFor="let item of txns.outputs"><a href="javascript:void(0);" (click)="showBlockAddressDetail(item.dst)" class="text-underline">{{item.dst}}</a></p>
                                 </td>
                                 <td>
                                     <div>
@@ -345,7 +345,7 @@
                     </div>
                     <div *ngIf="blockViewMode=='blockTransactionDetail'">
                         <div>
-                            <a href="#" (click)="showRecentBlock()" class="text-underline"><i class="fa fa-arrow-left"></i> Recent Blocks</a>
+                            <a href="javascript:void(0);" (click)="showRecentBlock()" class="text-underline"><i class="fa fa-arrow-left"></i> Recent Blocks</a>
                         </div>
                         <h4>Transaction: {{selectedBlockTransaction.txid}}</h4>
                         <p>
@@ -366,7 +366,7 @@
                                 </td>
                                 <td><i class="fa fa-2x fa-arrow-right"></i></td>
                                 <td>
-                                    <p *ngFor="let item of selectedBlockTransaction.outputs"><a href="#" (click)="showBlockAddressDetail(item.dst)" class="text-underline">{{item.dst}}</a></p>
+                                    <p *ngFor="let item of selectedBlockTransaction.outputs"><a href="javascript:void(0);" (click)="showBlockAddressDetail(item.dst)" class="text-underline">{{item.dst}}</a></p>
                                 </td>
                                 <td>
                                     <div>
@@ -380,7 +380,7 @@
                     </div>
                     <div *ngIf="blockViewMode=='blockAddressDetail'">
                         <div>
-                            <a href="#" (click)="showRecentBlock()" class="text-underline"><i class="fa fa-arrow-left"></i> Recent Blocks</a>
+                            <a href="javascript:void(0);" (click)="showRecentBlock()" class="text-underline"><i class="fa fa-arrow-left"></i> Recent Blocks</a>
                         </div>
                         <h4>Address: {{selectedBlockAddress}}</h4>
                         <p>
@@ -405,11 +405,11 @@
                             </tr>
                             <tr style="background:white">
                                 <td>
-                                    <p><a href="#" (click)="showTransactionDetail(ux.src_tx)" class="text-underline">{{ux.src_tx}}</a></p>
+                                    <p><a href="javascript:void(0);" (click)="showTransactionDetail(ux.src_tx)" class="text-underline">{{ux.src_tx}}</a></p>
                                 </td>
                                 <td><i class="fa fa-2x fa-arrow-right" style="color:{{ux.type=='in'?'green':'red'}}"></i></td>
                                 <td>
-                                    <p><a href="#" (click)="showTransactionDetail(ux.spent_tx)" class="text-underline">{{ux.spent_tx}}</a></p>
+                                    <p><a href="javascript:void(0);" (click)="showTransactionDetail(ux.spent_tx)" class="text-underline">{{ux.spent_tx}}</a></p>
                                 </td>
                                 <td>
                                     <div>
