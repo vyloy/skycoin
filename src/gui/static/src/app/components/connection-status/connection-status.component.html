@@ -1,0 +1,15 @@
+<div class="box">
+  <div class="info" *ngIf="info" (mouseenter)="showInfo($event)" (mouseleave)="hideInfo($event)" [ngClass]="position">
+    <p *ngIf="!blcokChainProgress">Loadding...</p>
+    <ng-container *ngIf="blcokChainProgress">
+      <p *ngFor="let peer of blcokChainProgress?.peers"><span class="address single-line">{{peer?.address}}</span><small class="height">{{peer?.height}}</small></p>
+      <p class="more" *ngIf="blcokChainProgressPeerSize >= maxItem" (click)="openAll($event)">more...</p>
+      <p class="total"><span>Total:<span class="size">{{blcokChainProgressPeerSize}}</span></span></p>
+      <p class="other"><span class="current">Current:<small>{{blcokChainProgress?.current}}</small></span><span class="highest">Highest:<small>{{blcokChainProgress?.highest}}</small></span></p>
+    </ng-container>
+  </div>
+  <p class="status-box" (mouseenter)="showInfo($event)" (mouseleave)="hideInfo($event)" #statusBox>
+    <i class="fa fa-circle status" [ngClass]="status"></i>
+    <span class="text">Connection Status</span>
+  </p>
+</div>

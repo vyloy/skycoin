@@ -2,53 +2,66 @@ html,
 body {
     height: 100%;
 }
+
 a,
 a:hover,
 a:active {
     color: #000;
 }
+
 tr {
     border: 1px solid #ddd;
     background-color: #f2f5f8;
 }
+
 td {
     padding: 5px;
     padding-left: 10px;
     padding-right: 10px;
     position: relative;
 }
+
 br {
     display: block;
     width: 100%;
 }
+
 .dark-row {
     background-color: #f2f5f8;
 }
+
 .green {
     color: #008000;
 }
+
 .tab-pane,
 .nav-tabs>li.active>a,
 .nav-tabs>li.active>a:hover {
     background-color: #eaeff3;
 }
+
 .nav-tabs a {
     color: #000;
 }
+
 .nav-tabs>li.active>a,
 .nav-tabs>li.active>a:hover,
 .nav-tabs>li.active>a:focus {
     color: #000;
 }
+
 .tab-content {
     /*box-shadow: 0px 37px 57px #E0DEDE;*/
     -webkit-border-radius: 10px;
     border-radius: 10px;
+    margin-bottom: 3rem;
 }
+
 .tab-pane {
     border-bottom-right-radius: 10px;
     border-bottom-left-radius: 10px;
 }
+
 .fa-align-justify {
     display: inline-block;
     position: absolute;
@@ -57,6 +70,7 @@ br {
     /*color:#a3b0bb;*/
     color: #fff;
 }
+
 #sky-header {
     width: 100%;
     background: #dbe1e6 url("/assets/images/skycoin_logo.png") 14px 12px no-repeat;
@@ -69,97 +83,124 @@ br {
     position: absolute;
     top: 4px;
 }
-#main-content {
+
+
+/*#main-content {
     max-width: 950px;
     position:relative;
-}
+}*/
+
 .wallet-buttons {
     width: 100%;
     clear: both;
     padding-top: 10px;
 }
+
 #send-table {
     width: 100%;
     text-align: left;
 }
+
 .send-pay-col1 {
     width: 92px;
 }
+
 #send-table td {
     text-align: left;
 }
+
 #send_pay_to {
     float: right;
     width: 100%;
 }
+
 #send_label {
     float: right;
     width: 100%;
 }
+
 #send_amount {
     width: 20%;
 }
+
 table#overview-wallet {
     width: 100%;
     float: left;
     margin-right: 10px;
     margin-top: 10px;
 }
+
 #overview-wallet,
 #overview-wallet tr {
     background-color: #fff;
 }
+
 #overview-wallet tr.dark-row {
     background-color: #f2f5f8;
 }
+
 #overview-wallet a {
     margin-left: 10px;
 }
+
 #overview-wallet a:first-of-type {
     margin-left: 0px;
 }
+
 #transaction-table {
     width: 100%;
     background-color: #fff;
 }
+
 #transaction-table button,
 #transaction-table .btn-group {
     width: 100%;
 }
+
 #transaction-table tr {
     background-color: #fff;
 }
+
 #transaction-table td {
     text-align: left;
 }
+
 #transaction-table .dark-row {
     background-color: #f2f5f8;
     cursor: pointer;
 }
+
 #pending-table {
     width: 100%;
     background-color: #fff;
 }
+
 #pending-table button,
 #transaction-table .btn-group {
     width: 100%;
 }
+
 #pending-table tr {
     background-color: #fff;
 }
+
 #pending-table td {
     text-align: left;
 }
+
 #pending-table .dark-row {
     background-color: #f2f5f8;
     cursor: pointer;
 }
+
 label {
     float: left;
 }
+
 .green {
     color: #27bd33 !important;
 }
+
 .outline {
     border: 1px solid #ddd;
     padding: 10px;
@@ -167,17 +208,20 @@ label {
     border-bottom-right-radius: 10px;
     border-bottom-left-radius: 10px;
 }
+
 .nav,
 .pagination,
 .carousel a {
     cursor: pointer;
 }
+
 #sky-center {
     position: relative;
     padding: 15px;
 }
+
 #sky-footer {
-    display:none;
+    display: none;
     width: 100%;
     height: 12%;
     bottom: 0;
@@ -188,23 +232,27 @@ label {
     -webkit-box-shadow: 0px -5px 5px #dbe1e6;
     box-shadow: 0px -5px 5px #dbe1e6;
 }
+
 .progress-striped {
     width: 50%;
     margin-bottom: 0;
     display: inline-block;
 }
+
 #sky-footer .percent {
     display: inline-block;
     position: relative;
     bottom: 5px;
     left: 2px;
 }
+
 #sky-footer .signal {
     position: absolute;
     right: 25px;
     top: 21px;
     font-size: 24px;
 }
+
 .background-cloud-0 {
     position: absolute;
     color: #fff;
@@ -216,6 +264,7 @@ label {
     -ms-filter: none;
     filter: none;
 }
+
 .background-cloud-0 i {
     position: absolute;
     left: 11px;
@@ -223,6 +272,7 @@ label {
     top: -1px;
     display: none;
 }
+
 .background-cloud-1 {
     position: absolute;
     color: #dbe1e6;
@@ -235,6 +285,7 @@ label {
     -webkit-filter: blur(2px);
     z-index: -1;
 }
+
 .background-cloud-2 {
     position: absolute;
     color: #eaf2f8;
@@ -246,6 +297,7 @@ label {
     filter: alpha(opacity=50);
     z-index: -1;
 }
+
 .background-cloud-3 {
     position: absolute;
     color: #dbe1e6;
@@ -296,11 +348,13 @@ label {
     -ms-animation-play-state: running;
     animation-play-state: running;
 }
+
 .qr-container {
     text-align: center;
     position: relative;
     padding: 30px;
 }
+
 @-moz-keyframes floatOne {
     0% {
         bottom: -250px;
@@ -312,6 +366,7 @@ label {
         bottom: -250px;
     }
 }
+
 @-webkit-keyframes floatOne {
     0% {
         bottom: -250px;
@@ -323,6 +378,7 @@ label {
         bottom: -250px;
     }
 }
+
 @-o-keyframes floatOne {
     0% {
         bottom: -250px;
@@ -334,6 +390,7 @@ label {
         bottom: -250px;
     }
 }
+
 @keyframes floatOne {
     0% {
         bottom: -250px;
@@ -346,36 +403,45 @@ label {
     }
 }
 
-.qr-container img{
+.qr-container img {
     display: none !important;
 }
-.qr-container canvas{
+
+.qr-container canvas {
     display: inline-block !important;
 }
-.qr-container .qrAddress{
+
+.qr-container .qrAddress {
     text-align: center;
 }
+
 .header-for-total-sky {
     background: rgb(234, 239, 243) none repeat scroll 0% 0%;
     padding: 10px 20px;
     border: 1px solid rgb(221, 221, 221);
-    margin-bottom:15px;
+    margin-bottom: 15px;
 }
+
 .total-sky-text {
     font-size: 16px;
 }
+
 .text-underline {
     text-decoration: underline;
 }
 
-#versionNumber{
+#versionNumber {
     position: absolute;
     top: 25px;
     left: 190px;
     color: rgb(156, 163, 175);
 }
 
-.sync-div-container{
+.sync-div-container {
     display: inline-block;
-    float: right;
+    /*float: right;*/
+}
+
+load-wallet {
+    display: block;
 }

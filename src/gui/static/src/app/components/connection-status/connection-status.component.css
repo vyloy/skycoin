@@ -1,0 +1,113 @@
+/*Connection Status*/
+
+connection-status {
+  position: fixed;
+  display: block;
+  width: 100%;
+  z-index: 999;
+  bottom: 0;
+}
+
+connection-status .box {
+  position: relative;
+  width: 100%;
+  padding: 1rem 30px;
+  background-color: hsla(0, 0%, 100%, 0.7);
+  box-shadow: 0 -0.2rem 1rem hsla(0, 0%, 0%, 0.1);
+}
+
+connection-status .box .bottom {
+  top: 100%;
+}
+
+connection-status .box .top {
+  bottom: 100%;
+}
+
+connection-status .box .info {
+  position: absolute;
+  z-index: 1010;
+  left: 1%;
+  padding: 1rem;
+  border-radius: .5rem;
+  box-shadow: 0.1rem 0.2rem 1rem hsla(0, 0%, 0%, 0.4);
+  box-sizing: border-box;
+  background-color: #fff;
+}
+
+connection-status .box .info .total {
+  border-top: .1rem solid hsla(0, 0%, 80%, 0.5);
+  padding-top: 1rem;
+  /*text-align: right;*/
+}
+
+connection-status .box .info .total .size {
+  color: #ff9720;
+}
+
+connection-status .box .info .other {
+  margin-bottom: 0;
+  /*border-top: .1rem solid hsla(0, 0%, 80%, 0.5);*/
+}
+
+connection-status .box .info .other small {
+  color: #ff9720;
+  margin-left: .5rem;
+}
+
+connection-status .box .info span {
+  margin: 0 .5rem;
+}
+
+connection-status .box .info .more {
+  cursor: pointer;
+  color: blue;
+}
+
+connection-status .box .info .more:hover {
+  text-decoration: underline;
+}
+
+connection-status .box .info .address {
+  color: #696969;
+  display: inline-block;
+  margin: 0;
+  width: 80%;
+}
+
+connection-status .box .info .height {
+  display: inline-block;
+  width: 20%;
+  text-align: right;
+  color: #00a6ff;
+}
+
+connection-status .box .info ul {
+  list-style: none;
+  padding-left: 1rem;
+}
+
+connection-status .status-box {
+  display: inline-block;
+  cursor: pointer;
+  margin: 0;
+}
+connection-status .status-box .text {
+  font-weight: 500;
+  color: #999;
+}
+connection-status .box .status {
+  margin-right: .5rem;
+}
+
+connection-status .box .great {
+  color: #40d03f;
+}
+
+connection-status .box .bad {
+  color: #f75d5a;
+}
+
+connection-status .box .medium {
+  color: #f9c235;
+}

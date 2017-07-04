@@ -131,6 +131,8 @@ function createWindow(url) {
   win = new BrowserWindow({
     width: 1200,
     height: 900,
+    minWidth: 800,
+    minHeight: 480,
     title: 'Skycoin',
     nodeIntegration: false,
     webPreferences: {
