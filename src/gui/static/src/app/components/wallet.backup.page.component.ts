@@ -82,7 +82,5 @@ export class WalletBackupPageComponent implements AfterViewInit {
 
   showOrHideSeed(wallet){
     wallet.showSeed = !wallet.showSeed;
-    // var seedEl = document.getElementById("seed-"+seed);
-    // seedEl.innerHTML = seed;
   }
 }
