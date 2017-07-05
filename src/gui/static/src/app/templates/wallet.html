@@ -182,21 +182,21 @@
                         </div>
                     </form>
                     <div style="width:100%;overflow:auto;">
-                        <table id="transaction-table">
+                        <table id="transaction-table" class="table">
                             <thead>
                             <tr class="dark-row">
-                                <td style="width:80px">
-                                    <a href="#" (click)="sortHistoryByTime($event)" class="text-underline">Time
-                                        <i class="fa fa-sort"></i>
-                                        <!--<i *ngIf="sortDir.time!=0" class="glyphicon glyphicon-triangle-{{sortDir.time==1?'top':'bottom'}}"></i>-->
+                                <th>
+                                    <a href="#" (click)="sortHistoryByTime($event)" class="flex-center-box custom-link">
+                                        <span>Time</span>
+                                        <i class="glyphicon" [class.glyphicon-triangle-bottom]="historyTimeBy == 'desc'" [class.glyphicon-triangle-top]="historyTimeBy == 'asc'"></i>
                                     </a>
-                                </td>
-                                <td>Status</td>
-                                <td>Type</td>
-                                <td>Addresses</td>
-                                <td>Notes</td>
-                                <td>Amount</td>
-                                <td>Transaction ID</td>
+                                </th>
+                                <th>Status</th>
+                                <th>Type</th>
+                                <th>Addresses</th>
+                                <th>Notes</th>
+                                <th>Amount</th>
+                                <th>Transaction ID</th>
                             </tr>
                             </thead>
                             <tbody>

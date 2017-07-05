@@ -791,45 +791,6 @@ export class LoadWalletComponent implements OnInit {
             }
         );
     }
-    // Is not working
-    sortHistory(key) {
-        if(this.sortDir[key]==0)
-            this.sortDir[key] = 1;
-        else
-            this.sortDir[key] = this.sortDir[key] * (-1);
-
-        if(key == 'time'){
-            this.sortDir['address'] = 0;
-            this.sortDir['amount'] = 0;
-        } else if(key == 'amount') {
-            this.sortDir['time'] = 0;
-            this.sortDir['address'] = 0;
-        } else {
-            this.sortDir['time'] = 0;
-            this.sortDir['amount'] = 0;
-        }
-
-        var self = this;
-        if(key == 'time') {
-            this.historyTable = _.sortBy(this.historyTable, function(o){
-                return o.txn.timestamp;
-            });
-        } else if(key == 'amount') {
-            this.historyTable = _.sortBy(this.historyTable, function(o){
-                return Number(o[key]);
-            });
-        } else if(key == 'address') {
-            this.historyTable = _.sortBy(this.historyTable, function(o){
-                return o[key];
-            })
-        };
-
-        if(this.sortDir[key] == -1) {
-            this.historyTable = this.historyTable.reverse();
-        }
-
-        this.setHistoryPage(this.historyPager.currentPage);
-    }
 
     filterHistory(address) {
         console.log("filterHistory", address);
