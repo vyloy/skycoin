@@ -439,7 +439,7 @@ label {
 
 .sync-div-container {
     display: inline-block;
-    /*float: right;*/
+    float: right;
 }
 
 load-wallet {
