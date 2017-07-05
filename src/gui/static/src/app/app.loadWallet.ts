@@ -83,7 +83,7 @@ export class LoadWalletComponent implements OnInit {
     displayMode: DisplayModeEnum;
     displayModeEnum = DisplayModeEnum;
     selectedMenu: string;
-
+    historyTimeBy:string = 'desc';
     userTransactions:Array<any>;
 
     @ViewChild(SkyCoinOutputComponent)
@@ -261,9 +261,43 @@ export class LoadWalletComponent implements OnInit {
                     this.userTransactions.push({'type':'confirmed','transactionInputs':transaction.inputs,'transactionOutputs':transaction.outputs
                         ,'actualTransaction':transaction
                     });
+                    this.sortTransactions();
                 });
             });
         });
+    }
+    sortHistoryByTime(ev:Event) {
+        this.historyTimeBy = this.historyTimeBy === 'desc' ? 'asc' : 'desc';
+        this.sortTransactions()
+    }
+    sortTransactions() {
+        if(this.userTransactions.length <= 0) {
+            return;
+        }
+        switch (this.historyTimeBy) {
+            case 'asc':
+                this.userTransactions.sort((a, b) => {
+                    if (a.actualTransaction.timestamp > b.actualTransaction.timestamp) {
+                        return 1;
+                    }
+                    if (a.actualTransaction.timestamp < b.actualTransaction.timestamp) {
+                        return -1;
+                    }
+                    return 0;
+                });
+                break;
+            case 'desc':
+                 this.userTransactions.sort((a, b) => {
+                    if (a.actualTransaction.timestamp > b.actualTransaction.timestamp) {
+                        return -1;
+                    }
+                    if (a.actualTransaction.timestamp < b.actualTransaction.timestamp) {
+                        return 1;
+                    }
+                    return 0;
+                });
+                break;
+        }
     }
 
     //Load wallet function
@@ -757,7 +791,7 @@ export class LoadWalletComponent implements OnInit {
             }
         );
     }
-
+    // Is not working
     sortHistory(key) {
         if(this.sortDir[key]==0)
             this.sortDir[key] = 1;

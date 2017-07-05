@@ -186,8 +186,10 @@
                             <thead>
                             <tr class="dark-row">
                                 <td style="width:80px">
-                                    <a href="#" (click)="sortHistory('time')" class="text-underline">Time
-                                        <i *ngIf="sortDir.time!=0" class="glyphicon glyphicon-triangle-{{sortDir.time==1?'top':'bottom'}}"></i></a>
+                                    <a href="#" (click)="sortHistoryByTime($event)" class="text-underline">Time
+                                        <i class="fa fa-sort"></i>
+                                        <!--<i *ngIf="sortDir.time!=0" class="glyphicon glyphicon-triangle-{{sortDir.time==1?'top':'bottom'}}"></i>-->
+                                    </a>
                                 </td>
                                 <td>Status</td>
                                 <td>Type</td>
