@@ -30,7 +30,7 @@ declare var moment: any;
                                 <td>{{wallet.meta.filename}}</td>
 
                                 <td><a id="{{wallet.meta.seed}}" class="btn btn-success"  href="" download="{{getJsonObject(wallet)}}">{{wallet.meta.filename}}</a></td>
-                                 <td id="seed-{{wallet.meta.seed}}">
+                                 <td>
                                   <a class="btn btn-default" *ngIf="!wallet?.showSeed"  (click)="showOrHideSeed(wallet)">Show Seed</a>
                                   <p *ngIf="wallet?.showSeed">{{wallet.meta.seed}}<a class="btn btn-default btn-margin" (click)="showOrHideSeed(wallet)">Hide Seed</a></p>
                                  </td>
