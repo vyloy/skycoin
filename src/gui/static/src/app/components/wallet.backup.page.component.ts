@@ -1,8 +1,7 @@
 import {Component, AfterViewInit, Input, OnDestroy} from "@angular/core";
 import {WalletService} from "../services/wallet.service";
-import { SafeUrlPipe } from "../pipes/safe-url.pipe";
-declare var moment: any;
 
+declare var moment: any;
 @Component({
   selector: 'backup-wallets',
   template: `
@@ -30,7 +29,7 @@ declare var moment: any;
                                 <td>{{wallet.meta.label}}</td>
                                 <td>{{wallet.meta.filename}}</td>
 
-                                <td><a class="btn btn-success"  [href]="getJsonObject(wallet) | safeUrl" download="{{wallet.meta.filename}}.json">{{wallet.meta.filename}}</a></td>
+                                <td><a class="btn btn-success" href="javascript:void(0);" (click)="download($event,wallet)">{{wallet.meta.filename}}</a></td>
                                  <td>
                                   <a class="btn btn-default" *ngIf="!wallet?.showSeed"  (click)="showOrHideSeed(wallet)">Show Seed</a>
                                   <p *ngIf="wallet?.showSeed">{{wallet.meta.seed}}<a class="btn btn-default btn-margin" (click)="showOrHideSeed(wallet)">Hide Seed</a></p>
@@ -46,7 +45,6 @@ declare var moment: any;
       margin: 0 1rem;
     }
   `],
-  pipes: [SafeUrlPipe],
   providers:[WalletService]
 })
 
@@ -82,10 +80,16 @@ export class WalletBackupPageComponent implements AfterViewInit, OnDestroy{
         }
     );
   }
-  getJsonObject(wallet) {
-    return "data:text/json;charset=utf-8," +encodeURIComponent(JSON.stringify({"seed":wallet.meta.seed}));
-  }
 
+  download(ev:Event,wallet:any) {
+    ev.stopImmediatePropagation();
+    ev.stopPropagation();
+    let blob: Blob = new Blob([JSON.stringify({"seed":wallet.meta.seed})], { type: 'application/json'});
+    let link=document.createElement('a');
+    link.href=window.URL.createObjectURL(blob);
+    link['download']= wallet.meta.filename + '.json';
+    link.click();
+  }
   showOrHideSeed(wallet){
     wallet.showSeed = !wallet.showSeed;
   }
