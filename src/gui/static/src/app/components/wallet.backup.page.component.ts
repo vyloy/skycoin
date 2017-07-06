@@ -1,5 +1,6 @@
 import {Component, AfterViewInit, Input, OnDestroy} from "@angular/core";
 import {WalletService} from "../services/wallet.service";
+import { SafeUrlPipe } from "../pipes/safe-url.pipe";
 declare var moment: any;
 
 @Component({
@@ -29,7 +30,7 @@ declare var moment: any;
                                 <td>{{wallet.meta.label}}</td>
                                 <td>{{wallet.meta.filename}}</td>
 
-                                <td><a id="{{wallet.meta.seed}}" class="btn btn-success"  href="" download="{{getJsonObject(wallet)}}">{{wallet.meta.filename}}</a></td>
+                                <td><a class="btn btn-success"  [href]="getJsonObject(wallet) | safeUrl" download="{{wallet.meta.filename}}.json">{{wallet.meta.filename}}</a></td>
                                  <td>
                                   <a class="btn btn-default" *ngIf="!wallet?.showSeed"  (click)="showOrHideSeed(wallet)">Show Seed</a>
                                   <p *ngIf="wallet?.showSeed">{{wallet.meta.seed}}<a class="btn btn-default btn-margin" (click)="showOrHideSeed(wallet)">Hide Seed</a></p>
@@ -45,6 +46,7 @@ declare var moment: any;
       margin: 0 1rem;
     }
   `],
+  pipes: [SafeUrlPipe],
   providers:[WalletService]
 })
 
@@ -81,9 +83,7 @@ export class WalletBackupPageComponent implements AfterViewInit, OnDestroy{
     );
   }
   getJsonObject(wallet) {
-    var walletDoc = document.getElementById(wallet.meta.seed);
-    walletDoc.setAttribute("href","data:text/json;charset=utf-8," +encodeURIComponent(JSON.stringify({"seed":wallet.meta.seed})));
-    return  wallet.meta.filename+'.json';
+    return "data:text/json;charset=utf-8," +encodeURIComponent(JSON.stringify({"seed":wallet.meta.seed}));
   }
 
   showOrHideSeed(wallet){
